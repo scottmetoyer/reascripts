@@ -1,0 +1,17 @@
+number_of_items = CountMediaItems(0);
+i = 0;
+
+while (i < number_of_items) (
+  item = GetMediaItem(0, i);
+  
+  // Trim long samples to one beat
+  GetMediaItemInfo_Value(item, "D_LENGTH") > 0.5 ? (
+    SetMediaItemLength(item, 0.5, false);
+  );
+  
+  SetMediaItemPosition(item, 0.5 * i, false);
+  i += 1;
+);
+
+UpdateArrange();
+
